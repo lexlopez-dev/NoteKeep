@@ -20,6 +20,8 @@ class NoteViewModel(application: Application): AndroidViewModel(application) {
     // Variable for sorting
     val sortByHighPriority: LiveData<List<NoteData>>
     val sortByLowPriority: LiveData<List<NoteData>>
+    val sortByMediumPriority: LiveData<List<NoteData>>
+    val sortByOldest: LiveData<List<NoteData>>
 
     init {
         repository = NoteRepository(noteDao)
@@ -28,6 +30,8 @@ class NoteViewModel(application: Application): AndroidViewModel(application) {
         // Initializing sorting variables
         sortByHighPriority = repository.sortByHighPriority
         sortByLowPriority = repository.sortByLowPriority
+        sortByMediumPriority = repository.sortByMediumPriority
+        sortByOldest = repository.sortByOldest
     }
 
     // Function to insert data to database

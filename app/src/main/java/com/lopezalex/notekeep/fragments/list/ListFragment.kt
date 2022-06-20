@@ -107,6 +107,9 @@ class ListFragment : Fragment(), SearchView.OnQueryTextListener {
             R.id.menu_delete_all -> confirmRemoval()
             R.id.menu_priority_high -> mNoteViewModel.sortByHighPriority.observe(viewLifecycleOwner, Observer { adapter.setData(it) })
             R.id.menu_priority_low -> mNoteViewModel.sortByLowPriority.observe(viewLifecycleOwner, Observer { adapter.setData(it) })
+            R.id.menu_priority_medium -> mNoteViewModel.sortByMediumPriority.observe(viewLifecycleOwner, Observer { adapter.setData(it) })
+            R.id.menu_oldest -> mNoteViewModel.sortByOldest.observe(viewLifecycleOwner, Observer { adapter.setData(it) })
+            R.id.menu_newest -> mNoteViewModel.getAllData.observe(viewLifecycleOwner, Observer { adapter.setData(it) })
         }
         return super.onOptionsItemSelected(item)
     }

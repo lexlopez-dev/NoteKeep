@@ -6,12 +6,14 @@ import com.lopezalex.notekeep.data.models.NoteData
 
 class NoteRepository(private val noteDao: NoteDao) {
 
-    // Getting all data
+    // Getting all data (also used for default sorting newest)
     val getAllData: LiveData<List<NoteData>> = noteDao.getAllData()
 
     // Variables for sorting
     val sortByHighPriority: LiveData<List<NoteData>> = noteDao.sortByHighPriority()
     val sortByLowPriority: LiveData<List<NoteData>> = noteDao.sortByLowPriority()
+    val sortByMediumPriority: LiveData<List<NoteData>> = noteDao.sortByMediumPriority()
+    val sortByOldest: LiveData<List<NoteData>> = noteDao.sortByOldest()
 
     // Inserting data
     suspend fun insertData(noteData: NoteData) {
@@ -37,5 +39,7 @@ class NoteRepository(private val noteDao: NoteDao) {
     fun searchDatabase(searchQuery: String): LiveData<List<NoteData>> {
         return noteDao.searchDatabase(searchQuery)
     }
+
+
 
 }
